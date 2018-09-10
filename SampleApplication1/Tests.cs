@@ -20,6 +20,7 @@ namespace SampleApplication1
 
         [TestMethod]
         [TestCategory("Sample Application Tests")]
+        [Description("Signing In to Application.")]
         public void SignIn_Application()
         {
 
