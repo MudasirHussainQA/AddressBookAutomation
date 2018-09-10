@@ -24,7 +24,7 @@ namespace SampleApplication1
         public IWebElement ZipCode => Driver.FindElement(By.CssSelector("input#address_zip_code"));
 
         public IWebElement CreateAddress => Driver.FindElement(By.CssSelector("[type='submit']"));
-        //Test//
+        
 
         
 
