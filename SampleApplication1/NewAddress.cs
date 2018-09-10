@@ -67,6 +67,7 @@ namespace SampleApplication1
             Address1.SendKeys(User.address);
             _logger.Info($"Address selected=>{User.address}");
             City.SendKeys(User.city);
+            _logger.Info($"City selected=>{User.city}");
             ZipCode.SendKeys(User.zipcode);
             CreateAddress.Click();
 
