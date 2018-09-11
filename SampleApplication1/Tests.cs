@@ -5,6 +5,7 @@ using OpenQA.Selenium.Chrome;
 using System.IO;
 using System.Reflection;
 using System.Threading;
+using SampleApplication1;
 
 namespace SampleApplication1
 {
@@ -28,7 +29,8 @@ namespace SampleApplication1
             SampleAppPage.GoTo();
             SampleAppPage.FilloutandSubmit(TheTestUser);
             var db = new DashboardPage(driver);
-            Assert.IsTrue(db.IsVisible, "Dashboard Page not Visible");
+            AssertPageVisible(db);          
+            //Assert.IsTrue(db.IsVisible, "Dashboard Page not Visible");
                        
 
         }
@@ -136,5 +138,12 @@ namespace SampleApplication1
             ChromeDriver driver = new ChromeDriver(GetChromeOptions());
             return driver;
         }
+
+        private static void AssertPageVisible(DashboardPage dashboardPage)
+        {
+            Assert.IsTrue(dashboardPage.IsVisible, "UltimateQA home page was not visible.");
+        }
+
+
     }
 }
