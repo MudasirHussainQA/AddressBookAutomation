@@ -20,6 +20,7 @@ namespace SampleApplication1
         internal SampleApplicationPage SampleAppPage { get; private set; }
 
         [TestMethod]
+        [TestProperty("Author","Mudasir Hussain")]
         [TestCategory("Sample Application Tests")]
         [Description("Signing In to Application.")]
         public void SignIn_Application()
@@ -36,6 +37,7 @@ namespace SampleApplication1
         }
 
         [TestMethod]
+        [TestProperty("Author", "Mudasir Hussain")]
         [TestCategory("Sample Application Tests")]
         public void TestMethod2()
         {
@@ -50,6 +52,7 @@ namespace SampleApplication1
         }
 
         [TestMethod]
+        [TestProperty("Author", "Mudasir Hussain")]
         [TestCategory("Sample Application Tests")]
         [Description("Create Address Test Case.")]
         public void CreateAddress()
@@ -70,6 +73,7 @@ namespace SampleApplication1
         }
 
         [TestMethod]
+        [TestProperty("Author", "Mudasir Hussain")]
         [TestCategory("Sample Application Tests")]
         public void CreateAddresswithCountry()
         {
