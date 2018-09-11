@@ -15,8 +15,7 @@ namespace SampleApplication1
         private IWebDriver driver { get; set; }
 
         internal TestUser TheTestUser { get; set; }
-
-        //internal SampleAppPage AppPage { get; private set; }
+               
         internal SampleApplicationPage SampleAppPage { get; private set; }
 
         [TestMethod]
