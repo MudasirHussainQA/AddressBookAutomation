@@ -51,6 +51,7 @@ namespace SampleApplication1
 
         [TestMethod]
         [TestCategory("Sample Application Tests")]
+        [Description("Create Address Test Case.")]
         public void CreateAddress()
         {
 
