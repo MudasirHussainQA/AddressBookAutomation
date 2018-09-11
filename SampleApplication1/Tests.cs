@@ -16,7 +16,8 @@ namespace SampleApplication1
 
         internal TestUser TheTestUser { get; set; }
 
-        internal SampleApplicationPage AppPage { get; private set; }
+        internal SampleAppPage AppPage { get; private set; }
+        internal SampleAppPage SampleAppPage { get; private set; }
 
         [TestMethod]
         [TestCategory("Sample Application Tests")]
@@ -25,9 +26,8 @@ namespace SampleApplication1
         {
 
 
-            var sampleapplicationpage = new SampleApplicationPage(driver);
-            sampleapplicationpage.GoTo();
-            sampleapplicationpage.FilloutandSubmit(TheTestUser);
+            SampleAppPage.GoTo();
+            SampleAppPage.FilloutandSubmit(TheTestUser);
             var db = new DashboardPage(driver);
             Assert.IsTrue(db.IsVisible, "Dashboard Page not Visible");
                        
@@ -40,9 +40,8 @@ namespace SampleApplication1
         {
 
 
-            var sampleapplicationpage = new SampleApplicationPage(driver);
-            sampleapplicationpage.GoTo();            
-            sampleapplicationpage.FilloutandSubmit(TheTestUser);
+            SampleAppPage.GoTo();            
+            SampleAppPage.FilloutandSubmit(TheTestUser);
             var db = new DashboardPage(driver);
             Assert.IsFalse(!db.IsVisible, "Dashboard Page not Visible");
 
@@ -55,10 +54,9 @@ namespace SampleApplication1
         public void CreateAddress()
         {
 
-
-            var sampleapplicationpage = new SampleApplicationPage(driver);
-            sampleapplicationpage.GoTo();
-            sampleapplicationpage.FilloutandSubmit(TheTestUser);
+                       
+            SampleAppPage.GoTo();
+            SampleAppPage.FilloutandSubmit(TheTestUser);
             Thread.Sleep(1000);
             var addresspage = new AddressPage(driver);            
             addresspage.ClickAddressLink();
@@ -75,10 +73,9 @@ namespace SampleApplication1
         public void CreateAddresswithCountry()
         {
 
-
-            var sampleapplicationpage = new SampleApplicationPage(driver);
-            sampleapplicationpage.GoTo();
-            sampleapplicationpage.FilloutandSubmit(TheTestUser);
+                       
+            SampleAppPage.GoTo();
+            SampleAppPage.FilloutandSubmit(TheTestUser);
             Thread.Sleep(1000);
             var addresspage = new AddressPage(driver);
             addresspage.ClickAddressLink();
@@ -98,6 +95,7 @@ namespace SampleApplication1
         public void SetupforEveryTestMethod()
         {
             driver = GetChromeDriver();
+            SampleAppPage = new SampleAppPage(driver);
             driver.Manage().Window.Maximize();
             TheTestUser= new TestUser();
             TheTestUser.Email = "y1@yopmail.com";
