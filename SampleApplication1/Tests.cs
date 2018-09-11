@@ -16,8 +16,8 @@ namespace SampleApplication1
 
         internal TestUser TheTestUser { get; set; }
 
-        internal SampleAppPage AppPage { get; private set; }
-        internal SampleAppPage SampleAppPage { get; private set; }
+        //internal SampleAppPage AppPage { get; private set; }
+        internal SampleApplicationPage SampleAppPage { get; private set; }
 
         [TestMethod]
         [TestCategory("Sample Application Tests")]
@@ -95,7 +95,7 @@ namespace SampleApplication1
         public void SetupforEveryTestMethod()
         {
             driver = GetChromeDriver();
-            SampleAppPage = new SampleAppPage(driver);
+            SampleAppPage = new SampleApplicationPage(driver);
             driver.Manage().Window.Maximize();
             TheTestUser= new TestUser();
             TheTestUser.Email = "y1@yopmail.com";

@@ -4,12 +4,12 @@ using System;
 
 namespace SampleApplication1
 {
-    internal class SampleAppPage : BasePage
+    internal class SampleApplicationPage : BasePage
     {
 
 
 
-        public SampleAppPage(IWebDriver driver) : base(driver)
+        public SampleApplicationPage(IWebDriver driver) : base(driver)
         {
 
         }
