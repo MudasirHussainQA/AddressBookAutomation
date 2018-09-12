@@ -50,6 +50,7 @@ namespace SampleApplication1
         internal NewAddress SaveRecordwithCountry(TestUser User)
 
         {
+            _logger.Trace("Attempting to save record with Country");
             switch (User.selectCountry)
             {
                 case Country.UnitedStates:
@@ -60,7 +61,7 @@ namespace SampleApplication1
                     break;
                 default:
                     break;
-            }
+            }            
             FirstName.SendKeys(User.firstname);
             _logger.Info($"First Name selected=>{User.firstname}");
             LastName.SendKeys(User.lastname);
