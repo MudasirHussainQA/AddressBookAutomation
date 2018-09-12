@@ -74,7 +74,7 @@ namespace SampleApplication1
 
         [TestMethod]
         [TestProperty("Author", "Mudasir Hussain")]
-        [TestCategory("Sample Application Tests")]
+        [TestCategory("Logging")]
         public void CreateAddresswithCountry()
         {
 
