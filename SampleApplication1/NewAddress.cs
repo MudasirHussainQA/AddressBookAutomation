@@ -63,7 +63,7 @@ namespace SampleApplication1
                     break;
             }            
             FirstName.SendKeys(User.firstname);
-            _logger.Info($"First Name selected=>{User.firstname}");
+            _logger.Info($"First Name selected=>{User.firstname}");            
             LastName.SendKeys(User.lastname);
             Address1.SendKeys(User.address);
             _logger.Info($"Address selected=>{User.address}");
