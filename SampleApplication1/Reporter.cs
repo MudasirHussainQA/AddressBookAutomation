@@ -15,7 +15,7 @@ namespace SampleApplication1
     {
         private static readonly Logger TheLogger = LogManager.GetCurrentClassLogger();
         private static ExtentReports ReportManager { get; set; }
-        private static string ApplicationDebuggingFolder => "C:/temp/CreatingReports";
+        private static string ApplicationDebuggingFolder => "C://";
 
         private static string HtmlReportFullPath { get; set; }
 

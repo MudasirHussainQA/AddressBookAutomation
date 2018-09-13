@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using SampleApplication1;
+using NLog;
 
 namespace SampleApplication1
 {
@@ -16,7 +17,11 @@ namespace SampleApplication1
         private IWebDriver driver { get; set; }
 
         internal TestUser TheTestUser { get; set; }
-               
+
+        public TestContext TestContext { get; set; }
+
+        private ScreenshotTaker ScreenshotTaker { get; set; }
+
         internal SampleApplicationPage SampleAppPage { get; private set; }
 
         [TestMethod]
@@ -101,6 +106,7 @@ namespace SampleApplication1
         {
             driver = GetChromeDriver();
             SampleAppPage = new SampleApplicationPage(driver);
+            Reporter.AddTestCaseMetadataToHtmlReport(TestContext);
             driver.Manage().Window.Maximize();
             TheTestUser= new TestUser();
             TheTestUser.Email = "y1@yopmail.com";
@@ -111,6 +117,7 @@ namespace SampleApplication1
             TheTestUser.city = "srinagar";
             TheTestUser.zipcode = "190018";
             TheTestUser.selectCountry = Country.Canada;
+            ScreenshotTaker = new ScreenshotTaker(driver, TestContext);
             //TheTestUser.selectCommonIntrest = CommonIntrest.Reading;
         }
 
@@ -146,6 +153,19 @@ namespace SampleApplication1
         private static void AssertPageVisible(DashboardPage dashboardPage)
         {
             Assert.IsTrue(dashboardPage.IsVisible, "UltimateQA home page was not visible.");
+        }
+
+        private void TakeScreenshotForTestFailure()
+        {
+            if (ScreenshotTaker != null)
+            {
+                ScreenshotTaker.CreateScreenshotIfTestFailed();
+                Reporter.ReportTestOutcome(ScreenshotTaker.ScreenshotFilePath);
+            }
+            else
+            {
+                Reporter.ReportTestOutcome("");
+            }
         }
 
 
