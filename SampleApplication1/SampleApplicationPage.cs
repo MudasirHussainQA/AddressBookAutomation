@@ -27,6 +27,7 @@ namespace SampleApplication1
         internal void GoTo()
         {
             Driver.Navigate().GoToUrl("http://a.testaddressbook.com/sign_in");
+            Reporter.LogPassingTestStepToBugLogger($"Navigate to Complicated Page at url=>http://a.testaddressbook.com/sign_in");
             Assert.IsTrue(IsLoaded,
                $"Sample application page was not visible. Expected=>{PageTitle}." +
                $"Actual=>{Driver.Title}");

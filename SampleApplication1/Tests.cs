@@ -125,6 +125,9 @@ namespace SampleApplication1
 
         public void CleanupAfterTest()
         {
+                     
+           TakeScreenshotForTestFailure();         
+           
             driver.Close();
             driver.Quit();
         }
