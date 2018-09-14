@@ -111,11 +111,11 @@ namespace SampleApplication1
             TheTestUser= new TestUser();
             TheTestUser.Email = "y1@yopmail.com";
             TheTestUser.Password = "123";
-            TheTestUser.firstname = "User1";
-            TheTestUser.lastname = "lname";
-            TheTestUser.address = "bemina";
-            TheTestUser.city = "srinagar";
-            TheTestUser.zipcode = "190018";
+            TheTestUser.firstname = Helper.RandomString(5);
+            TheTestUser.lastname = Helper.RandomString(3);
+            TheTestUser.address = Helper.RandomString(5);
+            TheTestUser.city = Helper.RandomString(6);
+            TheTestUser.zipcode = Helper.RandomInt(6);
             TheTestUser.selectCountry = Country.Canada;
             ScreenshotTaker = new ScreenshotTaker(driver, TestContext);
             //TheTestUser.selectCommonIntrest = CommonIntrest.Reading;

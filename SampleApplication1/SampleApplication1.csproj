@@ -112,6 +112,7 @@
     <Compile Include="CommonIntrest.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="DashboardPage.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="NamespaceSetup.cs" />
     <Compile Include="NewAddress.cs" />
     <Compile Include="Reporter.cs" />
