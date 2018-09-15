@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using NLog;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace SampleApplication1
 {
@@ -25,12 +26,12 @@ namespace SampleApplication1
 
         public IWebElement CreateAddress => Driver.FindElement(By.CssSelector("[type='submit']"));
         
-
-        
+               
 
 
         public NewAddress(IWebDriver driver) : base(driver)
         {
+           
         }
 
         internal NewAddress SaveRecordwithRequiredFieldsOnly(TestUser User)

@@ -14,13 +14,15 @@ namespace SampleApplication1
     public class Tests
     {
 
-        private IWebDriver driver { get; set; }
+        public static IWebDriver driver { get; set; }
 
         internal TestUser TheTestUser { get; set; }
 
         public TestContext TestContext { get; set; }
 
         private ScreenshotTaker ScreenshotTaker { get; set; }
+
+        public static ISearchContext Driver { get { return driver; } }
 
         internal SampleApplicationPage SampleAppPage { get; private set; }
 
@@ -104,6 +106,7 @@ namespace SampleApplication1
         [TestInitialize]
         public void SetupforEveryTestMethod()
         {
+           
             driver = GetChromeDriver();
             SampleAppPage = new SampleApplicationPage(driver);
             Reporter.AddTestCaseMetadataToHtmlReport(TestContext);
