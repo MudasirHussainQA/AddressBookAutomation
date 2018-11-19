@@ -139,8 +139,11 @@ namespace SampleApplication1
 
         private IWebDriver GetChromeDriver()
         {
-            var outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            return new ChromeDriver(outputDirectory);
+            //var outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            //return new ChromeDriver(outputDirectory);
+
+            var outputDirectory = Path.GetDirectoryName(@"C:\Projects");
+            return new ChromeDriver(@"C:\Projects");
         }
 
         private static ChromeOptions GetChromeOptions()
