@@ -38,7 +38,7 @@ namespace SampleApplication1
             SampleAppPage.FilloutandSubmit(TheTestUser);
             var db = new DashboardPage(driver);
             AssertPageVisible(db);          
-            //Assert.IsTrue(db.IsVisible, "Dashboard Page not Visible");
+            //Assert.IsTrue(db.IsVisible, "Dashboard Page not Visible");//
                        
 
         }
