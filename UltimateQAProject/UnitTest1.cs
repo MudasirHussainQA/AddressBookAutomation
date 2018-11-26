@@ -46,6 +46,32 @@ namespace UltimateQAProject
 
         }
 
+        [TestCategory("DriverInterrogation")]
+        [TestMethod]
+        public void DriverLevelInterrogation()
+        {
+            driver.Navigate().GoToUrl("https://www.ultimateqa.com/automation/");
+            var x = driver.CurrentWindowHandle;
+            var y = driver.WindowHandles;
+            x = driver.PageSource;
+            x = driver.Title;
+            x = driver.Url;
+
+
+
+        }
+
+        [TestCategory("ElementInterrogation")]
+        [TestMethod]
+
+        public void ElementInterrogation()
+        {
+            driver.Navigate().GoToUrl("https://www.ultimateqa.com/automation/");
+            var myelement = driver.FindElement(By.XPath("//*[@href='http://courses.ultimateqa.com/users/sign_in']"));
+        }
+
+
+
         [TestInitialize]
        
         public void TestSetUp()
@@ -54,6 +80,12 @@ namespace UltimateQAProject
             var outputDirectory = Path.GetDirectoryName(@"C:\Projects");
             driver = new ChromeDriver(@"C:\Projects");
             
+        }
+
+        [TestCleanup]
+        public void CleanUp()
+        {
+            driver.Close();
         }
     }
 }
