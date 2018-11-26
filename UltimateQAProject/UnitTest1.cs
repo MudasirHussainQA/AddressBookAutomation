@@ -33,9 +33,12 @@ namespace UltimateQAProject
             var captchaAnswer = (int)table.Compute(captcha.Text, "");
             var captchaTextBox = driver.FindElement(By.XPath("//*[@class='input et_pb_contact_captcha']"));
             captchaTextBox.SendKeys(captchaAnswer.ToString());
-
+            
             driver.FindElements(By.XPath("//*[@class='et_pb_contact_submit et_pb_button']"))[1].Submit();
-            var successMessage = driver.FindElements(By.ClassName("et-pb-contact-message"))[1].FindElement(By.TagName("p"));
+            Thread.Sleep(2500);
+            var successMessage = driver.FindElement(By.XPath("//*[@class='et-pb-contact-message']//p[contains(text(), 'Success')][1]"));
+                    
+
             Thread.Sleep(2500);
             Assert.IsTrue(successMessage.Text.Equals("Success"));
 
