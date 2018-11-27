@@ -90,6 +90,36 @@ namespace UltimateQAProject
             Assert.AreEqual(255, myElement.Location.Y);
         }
 
+        [TestMethod]
+        [TestCategory("Navigation")]
+        public void SeleniumNavigation()
+        {
+            driver.Navigate().GoToUrl("https://www.ultimateqa.com/automation");
+            driver.Navigate().Forward();
+            driver.Navigate().Back();
+            driver.Navigate().Refresh();
+        }
+
+        [TestMethod]
+        [TestCategory("Navigation")]
+        public void SeleniumNavigationTest()
+        {
+            //Go here and assert for title - "https://www.ultimateqa.com"
+            driver.Navigate().GoToUrl("https://www.ultimateqa.com");
+            Assert.AreEqual("Home - Ultimate QA", driver.Title);
+            //Go here and assert for title - "https://www.ultimateqa.com/automation"
+            driver.Navigate().GoToUrl("https://www.ultimateqa.com/automation");
+            Assert.AreEqual("Automation Practice - Ultimate QA", driver.Title);
+            //Click link with href - /complicated-page
+            driver.FindElement(By.XPath("//*[@href='/complicated-page']")).Click();
+            //assert page title 'Complicated Page - Ultimate QA'
+            Assert.AreEqual("Complicated Page - Ultimate QA", driver.Title);
+            //Go back
+            driver.Navigate().Back();
+            //assert page title equals - 'Automation Practice - Ultimate QA'
+            Assert.AreEqual("Automation Practice - Ultimate QA", driver.Title);
+        }
+
 
 
         [TestInitialize]
