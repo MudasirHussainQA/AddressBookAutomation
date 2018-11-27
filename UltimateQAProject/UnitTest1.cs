@@ -66,8 +66,28 @@ namespace UltimateQAProject
 
         public void ElementInterrogation()
         {
-            driver.Navigate().GoToUrl("https://www.ultimateqa.com/automation/");
-            var myelement = driver.FindElement(By.XPath("//*[@href='http://courses.ultimateqa.com/users/sign_in']"));
+            driver.Navigate().GoToUrl("https://www.ultimateqa.com/automation/");            
+            var myelement = driver.FindElement(By.XPath("//*[@href='https://courses.ultimateqa.com/users/sign_in']"));
+        }
+
+        [TestMethod]
+        [TestCategory("Element Interrogation")]
+        public void ElementInterrogationTest()
+        {
+            driver.Url = "https://www.ultimateqa.com/simple-html-elements-for-automation/";
+            driver.Manage().Window.Maximize();    
+                                        
+            var myElement = driver.FindElement(By.Id("button1"));
+            Assert.AreEqual("submit", myElement.GetAttribute("type"));
+            Assert.AreEqual("normal", myElement.GetCssValue("letter-spacing"));
+            Assert.IsTrue(myElement.Displayed);
+            Assert.IsTrue(myElement.Enabled);
+            Assert.IsFalse(myElement.Selected);
+            Assert.AreEqual(myElement.Text, "Click Me!");
+            Assert.AreEqual("button", myElement.TagName);
+            Assert.AreEqual(21, myElement.Size.Height);
+            Assert.AreEqual(190, myElement.Location.X);
+            Assert.AreEqual(255, myElement.Location.Y);
         }
 
 
@@ -86,6 +106,7 @@ namespace UltimateQAProject
         public void CleanUp()
         {
             driver.Close();
+            driver.Quit();
         }
     }
 }

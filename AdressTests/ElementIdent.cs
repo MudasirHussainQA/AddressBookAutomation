@@ -33,6 +33,8 @@ namespace AdressTests
         {
 
             driver.Navigate().GoToUrl("http://a.testaddressbook.com/sign_in");
+            String URL = driver.Url;
+            Assert.AreEqual(URL, "http://a.testaddressbook.com/");
 
         }
     }
