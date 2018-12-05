@@ -23,6 +23,7 @@ namespace UltimateQAProject
             
             driver.Navigate().GoToUrl("https://www.ultimateqa.com/filling-out-forms/");
             driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             var name = driver.FindElements(By.Id("et_pb_contact_name_1"));            
             name[1].SendKeys("Mudasir");
             var message = driver.FindElements(By.Id("et_pb_contact_message_1"));           
@@ -34,12 +35,9 @@ namespace UltimateQAProject
             var captchaTextBox = driver.FindElement(By.XPath("//*[@class='input et_pb_contact_captcha']"));
             captchaTextBox.SendKeys(captchaAnswer.ToString());
             
-            driver.FindElements(By.XPath("//*[@class='et_pb_contact_submit et_pb_button']"))[1].Submit();
-            Thread.Sleep(2500);
-            var successMessage = driver.FindElement(By.XPath("//*[@class='et-pb-contact-message']//p[contains(text(), 'Success')][1]"));
-                    
-
-            Thread.Sleep(2500);
+            driver.FindElements(By.XPath("//*[@class='et_pb_contact_submit et_pb_button']"))[1].Submit();            
+            var successMessage = driver.FindElement(By.XPath("//*[@class='et-pb-contact-message']//p[contains(text(), 'Success')][1]"));               
+                     
             Assert.IsTrue(successMessage.Text.Equals("Success"));
 
 
